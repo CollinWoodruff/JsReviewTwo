@@ -21,58 +21,12 @@ $f3 = Base::instance();
 $f3->set('DEBUG', 3);
 
 $f3 = Base::instance();
-$f3->set('colors', array('pink', 'green', 'blue'));
 
 //Define a default route
 $f3->route('GET /', function() {
-    echo"<h1>My Pets</h1>";
-    echo"<a href='order'>Order a Pet</a>";
-});
-
-//Define a parameterized route
-$f3->route('GET /@animal', function($f3, $params) {
-    $animal = $params['animal'];
-    $noise = '';
-    if($animal == 'dog')
-    {
-        $noise = "Woof";
-    }elseif($animal == 'chicken')
-    {
-        $noise = "Cluck";
-    }elseif($animal == 'cow')
-    {
-        $noise = "Moo";
-    }elseif($animal == 'cat')
-    {
-        $noise = "Meow";
-    }elseif($animal == 'pig')
-    {
-        $noise = "Oink";
-    }
-    else {
-        $f3->error(404);
-    }
-    echo"<h1>$noise!</h1>";
-});
-
-//Define a form1 route
-$f3->route('GET|POST /order', function() {
-    $template = new Template();
-    echo $template->render('views/form1.html');
-});
-
-//Define a form2 route
-$f3->route('GET|POST /order2', function() {
-    $_SESSION['animal'] = $_POST['animal'];
-    $template = new Template();
-    echo $template->render('views/form2.html');
-});
-
-//Define a results route
-$f3->route('POST /results', function() {
-    $_SESSION['color'] = $_POST['color'];
-    $template = new Template();
-    echo $template->render('views/results.html');
+    echo"<h1>Js Review 2</h1>";
+    $view = new View;
+    echo $view->render('views/home.html');
 });
 
 //Run fat free
